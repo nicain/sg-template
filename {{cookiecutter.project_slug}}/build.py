@@ -1,4 +1,8 @@
 from pybuilder.core import use_plugin, init, task, Author
+from pybuilder.errors import BuildFailedException
+from pybuilder.plugins.python.unittest_plugin import _register_test_and_source_path_and_return_test_dir as push_test
+import sys
+import pytest
 
 # plugins
 use_plugin('python.distutils')
@@ -10,7 +14,7 @@ use_plugin('python.flake8')
 # TODO - this works outside of pyb but not inside it ?
 # use_plugin('python.unittest')
 
-default_task = ['publish', 'install_build_dependencies', 'install_dependencies']
+default_task = [ 'install_build_dependencies', 'install_dependencies', 'run_pytest', 'publish']
 
 # project meta
 name = '{{ cookiecutter.project_slug }}'
@@ -24,6 +28,21 @@ url = '{{ cookiecutter.stash_url }}'
 def build_docs(project, logger):
     pass
 
+@task
+def run_pytest(project, logger):
+    logger.info('Running pytest unit tests')
+    test_dir = push_test(project, sys.path, 'pytest')
+    extra_args = project.get_property("pytest_extra_args")
+    try:
+        pytest_args = [test_dir] + (extra_args if extra_args else [])
+        ret = pytest.main(pytest_args)
+        if ret:
+            raise BuildFailedException('pytest: unittests failed')
+        else:
+            logger.info('pytest: All unittests passed.')
+    except:
+        raise
+
 @init
 def initialize(project, logger):
     logger.info('Setting project properties.')
@@ -34,8 +53,7 @@ def initialize(project, logger):
     project.set_property('dir_dist', 'dist/{0}-{1}'.format(name, version))
 
     # testing
-    # project.set_property('dir_source_unittest_python', 'tests')
-    # project.set_property('unittest_module_glob', 'test_*')
+    project.set_property('dir_source_pytest_python', 'tests')
 
     # documentation
     project.set_property('dir_docs', 'docs')
