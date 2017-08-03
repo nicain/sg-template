@@ -1,4 +1,4 @@
-{{ cookiecutter.project_name }} documentation
+lims documentation
 ======================================
 
 Contents:
@@ -12,6 +12,8 @@ Contents:
    contributing
    authors
    history
+   code
+
 
 Indices and tables
 ==================

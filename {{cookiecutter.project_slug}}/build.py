@@ -1,6 +1,7 @@
 from pybuilder.core import use_plugin, init, task, Author
 from pybuilder.errors import BuildFailedException
 import pytest
+import os
 
 # plugins
 use_plugin('python.distutils')
@@ -12,7 +13,7 @@ use_plugin('python.flake8')
 # TODO - this works outside of pyb but not inside it ?
 # use_plugin('python.unittest')
 
-default_task = [ 'install_build_dependencies', 'install_dependencies', 'analyze', 'run_pytest', 'publish']
+default_task = [ 'install_build_dependencies', 'install_dependencies', 'analyze', 'run_pytest', 'publish', 'deploy']
 
 # project meta
 name = '{{ cookiecutter.project_slug }}'
@@ -22,7 +23,8 @@ description = __doc__
 authors = (Author('{{ cookiecutter.full_name }}', '{{ cookiecutter.email }}'),)
 url = '{{ cookiecutter.stash_url }}'
 
-@task(description='Runs pytest on project unit tests')
+
+@task
 def run_pytest(project, logger):
     logger.info('Running pytest unit tests')
     try:
@@ -30,6 +32,14 @@ def run_pytest(project, logger):
             raise BuildFailedException('pytest: unittests failed')
     except:
         raise
+
+
+@task
+def deploy(project, logger):
+    logger.info('Publishing to AIBSPI')
+    os.system('fab -p aibspi publish')
+    os.system('fab -p aibspi publish_docs')
+
 
 @init
 def initialize(project, logger):
@@ -51,7 +61,7 @@ def initialize(project, logger):
     project.set_property('sphinx_builder', 'html')
 
     # linting
-    project.set_property('flake8_break_build', True)
+    project.set_property('flake8_break_build', False)
     project.set_property('flake8_include_scripts', True)
     project.set_property('flake8_include_test_sources', True)
 
