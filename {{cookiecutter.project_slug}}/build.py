@@ -1,7 +1,5 @@
 from pybuilder.core import use_plugin, init, task, Author
-from pybuilder.errors import BuildFailedException
-import pytest
-import os
+from fabric.api import run, env, settings, put
 
 # plugins
 use_plugin('python.distutils')
@@ -26,20 +24,40 @@ authors = (Author('{{ cookiecutter.full_name }}', '{{ cookiecutter.email }}'),)
 url = '{{ cookiecutter.stash_url }}'
 
 
-@task(descript='fab_deploy')
-def deploy(logger):
-    logger.info('Publishing to AIBSPI')
-    os.system('fab -p aibspi publish')
-    os.system('fab -p aibspi publish_docs')
+@task(description='deploy project to aibspi')
+def deploy():
+    """
+    Pushes the most recent package and documentation to the aibspi server.
+
+    """
+    env.host_string = 'aibspi'
+    env.user = 'aibspi'
+    env.password = 'aibspi'
+
+    local_path = f'dist/{name}-{version}/dist/*'
+    package_path = f'python_index/{name}/'
+    with settings(warn_only=True):
+        run(f'mkdir {package_path}')
+    put(local_path, package_path)
+
+    local_path = f'docs/_build/html/*'
+    package_path = f'python_index/docs/{name}-{version}/'
+    with settings(warn_only=True):
+        run(f'mkdir -p {package_path}')
+    put(local_path, package_path)
 
 
 @init(environments='deploy')
 def initialize_deploy(logger):
+    """
+    Causes the deploy task to run after the default tasks.
+    :param logger: PyBuilder Logger
+    """
     deploy(logger)
 
 
 @init
-def initialize(project, logger):
+def initialize(project):
     project.set_property('verbose', True)
 
     # modules / dist
@@ -68,4 +86,9 @@ def initialize(project, logger):
 
     # entry points (typically the .py files in {{ cookiecutter.project_slug }}
     project.set_property('distutils_entry_points',
-                         {'console_scripts': ['{{ cookiecutter.project_slug }}={{ cookiecutter.project_slug }}:main']})
+                         {'console_scripts': ['{{ cookiecutter.project_slug }}={{ cookiecutter.project_slug }}_script:main',
+                                              '{{ cookiecutter.project_slug }}_post_install={{ cookiecutter.project_slug }}_post_install:main',
+                                              '{{ cookiecutter.project_slug }}_uninstall={{ cookiecutter.project_slug }}_uninstall:main']})
+
+    project.install_file('lib/site-packages/{{ cookiecutter.project_slug }}/resources',
+                         '{{ cookiecutter.project_slug }}/resources/logging.yml')

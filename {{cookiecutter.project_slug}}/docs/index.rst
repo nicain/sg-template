@@ -1,4 +1,4 @@
-lims documentation
+{{ cookiecutter.project_name }} documentation
 ======================================
 
 Contents:

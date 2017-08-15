@@ -53,54 +53,54 @@ Setting up {{ cookiecutter.project_name }} `cookiecutter-pypackage` for local de
 1. Fork the `cookiecutter-pypackage` repo on GitHub.
 2. Clone your fork locally::
 
-  .. code-block:: bash
+    .. code-block:: bash
 
-    $ cd path_for_the_repo
-    $ git clone git@github.com:YOUR_NAME/cookiecutter-pypackage.git
+        $ cd path_for_the_repo
+        $ git clone git@github.com:YOUR_NAME/cookiecutter-pypackage.git
 
 3. Assuming you have virtualenv installed (If you have Python3.5 this should already be there), you can create a new environment for your local development by typing::
 
-  .. code-block:: bash
+    .. code-block:: bash
 
-    $ virtualenv cookiecutter-pypackage-env
-    $ source cookiecutter-pypackage-env/bin/activate
+        $ virtualenv cookiecutter-pypackage-env
+        $ source cookiecutter-pypackage-env/bin/activate
 
-    This should change the shell to look something like
-    (cookiecutter-pypackage-env) $
+        This should change the shell to look something like
+        (cookiecutter-pypackage-env) $
 
 4. Create a branch for local development::
 
-  .. code-block:: bash
+    .. code-block:: bash
 
-    $ git checkout -b name-of-your-bugfix-or-feature
+        $ git checkout -b name-of-your-bugfix-or-feature
 
    Now you can make your changes locally.
 
 5. When you're done making changes, check that your changes pass flake8. Since, this package contains mostly templates the flake should
    be run for tests directory::
 
-  .. code-block:: bash
+    .. code-block:: bash
 
-    $ flake8 ./tests
+        $ flake8 ./tests
 
 6. The next step would be to run the test cases. `cookiecutter-pypackage` uses py.test, you can run PyTest. Before you run pytest you should ensure all dependancies are installed::
 
-  .. code-block:: bash
+    .. code-block:: bash
 
-    $ pip install -rrequirements_dev.txt
-    $ py.test ./tests
+        $ pip install -rrequirements_dev.txt
+        $ py.test ./tests
 
    If you get any errors while installing cryptography package (something like #include <openssl/aes.h>).
    Please update your pip version and try again::
 
-    # Update pip
-    $ pip install -U pip
+        # Update pip
+        $ pip install -U pip
 
 7. Before raising a pull request you should also run tox. This will run the tests across different versions of Python::
 
-  .. code-block:: bash
+    .. code-block:: bash
 
-    $ tox
+        $ tox
 
    .. note::
       If you are missing flake8, pytest and/or tox, just pip install them into your virtualenv.
@@ -109,11 +109,11 @@ Setting up {{ cookiecutter.project_name }} `cookiecutter-pypackage` for local de
 
 9. Commit your changes and push your branch to GitHub::
 
-  .. code-block:: bash
+    .. code-block:: bash
 
-    $ git add .
-    $ git commit -m "Your detailed description of your changes."
-    $ git push origin name-of-your-bugfix-or-feature
+        $ git add .
+        $ git commit -m "Your detailed description of your changes."
+        $ git push origin name-of-your-bugfix-or-feature
 
 10. Submit a pull request through the GitHub website.
 

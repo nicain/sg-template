@@ -2,15 +2,15 @@
 
 from distutils.core import setup
 setup(
-    name='{{ cookiecutter.project_name }}',
+    name='OAG',
     packages=[],
     version='0.1.0',
-    description='{{ cookiecutter.project_short_description }}',
-    author='{{ cookiecutter.full_name }}',
-    license='{{ cookiecutter.open_source_license }}',
-    author_email='{{ cookiecutter.email }}',
-    url='{{ cookiecutter.stash_url }}',
-    keywords=['{{ cookiecutter.project_name }}', 'template', 'package', ],
+    description='Web service',
+    author='Isabelle Butterfield',
+    license='MIT license',
+    author_email='isabelleb@alleninstitute.org',
+    url='http://stash.corp.alleninstitute.org/scm/~isabelleb/oag',
+    keywords=['OAG', 'template', 'package', ],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',

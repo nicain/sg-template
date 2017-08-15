@@ -1,8 +1,8 @@
 .. highlight:: shell
 
-============
+======================================
 {{ cookiecutter.project_name }} Installation
-============
+======================================
 
 .. _stash repo: {{ cookiecutter.stash_url }}/{{ cookiecutter.project_slug }}
 .. code-block:: console
