@@ -60,7 +60,7 @@ def initialize_deploy(logger):
 def initialize(project):
     project.set_property('verbose', True)
 
-    # modules / dist
+    # modules / di  st
     project.set_property('dir_source_main_python', '{{ cookiecutter.project_slug }}')
     project.set_property('dir_source_main_scripts', 'scripts')
     project.set_property('dir_dist', 'dist/{0}-{1}'.format(name, version))
@@ -91,4 +91,10 @@ def initialize(project):
                                               '{{ cookiecutter.project_slug }}_uninstall={{ cookiecutter.project_slug }}_uninstall:main']})
 
     project.install_file('lib/site-packages/{{ cookiecutter.project_slug }}/resources',
-                         '{{ cookiecutter.project_slug }}/resources/logging.yml')
+                         '{{ cookiecutter.project_slug }}/resources/{{ cookiecutter.project_slug }}_v1.yml')
+
+    project.install_file('lib/site-packages/{{ cookiecutter.project_slug }}/resources',
+                         '{{ cookiecutter.project_slug }}/resources/{{ cookiecutter.project_slug }}.ico')
+
+    project.install_file('lib/site-packages/{{ cookiecutter.project_slug }}/resources',
+                         '{{ cookiecutter.project_slug }}/resources/log_config_v1.yml')
