@@ -1,5 +1,8 @@
-from pybuilder.core import use_plugin, init, task, Author
+import glob
+import os
+
 from fabric.api import run, env, settings, put
+from pybuilder.core import use_plugin, init, task, Author
 
 # plugins
 use_plugin('python.distutils')
@@ -86,15 +89,11 @@ def initialize(project):
 
     # entry points (typically the .py files in {{ cookiecutter.project_slug }}
     project.set_property('distutils_entry_points',
-                         {'console_scripts': ['{{ cookiecutter.project_slug }}={{ cookiecutter.project_slug }}_script:main',
-                                              '{{ cookiecutter.project_slug }}_post_install={{ cookiecutter.project_slug }}_post_install:main',
-                                              '{{ cookiecutter.project_slug }}_uninstall={{ cookiecutter.project_slug }}_uninstall:main']})
+                         {'console_scripts': [
+                             '{{ cookiecutter.project_slug }}={{ cookiecutter.project_slug }}_script:main',
+                             '{{ cookiecutter.project_slug }}_post_install={{ cookiecutter.project_slug }}_post_install:main',
+                             '{{ cookiecutter.project_slug }}_uninstall={{ cookiecutter.project_slug }}_uninstall:main']})
 
-    project.install_file('lib/site-packages/{{ cookiecutter.project_slug }}/resources',
-                         '{{ cookiecutter.project_slug }}/resources/{{ cookiecutter.project_slug }}_v1.yml')
-
-    project.install_file('lib/site-packages/{{ cookiecutter.project_slug }}/resources',
-                         '{{ cookiecutter.project_slug }}/resources/{{ cookiecutter.project_slug }}.ico')
-
-    project.install_file('lib/site-packages/{{ cookiecutter.project_slug }}/resources',
-                         '{{ cookiecutter.project_slug }}/resources/log_config_v1.yml')
+    resources = glob.glob('limstk/limstk/resources/*')
+    for resource in resources:
+        project.include_file('limstk', 'resources/' + os.path.basename(resource))
