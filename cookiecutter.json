@@ -8,7 +8,7 @@
   "jira_url": "http://jira.corp.alleninstitute.org",
   "stash_url": "http://stash.corp.alleninstitute.org/scm/~{{ cookiecutter.user_name }}/{{ cookiecutter.project_slug }}",
   "version": "0.1.0",
-  "open_source_license": ["GNU General Public License v3", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"],
+  "open_source_license": ["Allen Institute Software License", "GNU General Public License v3", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"],
   "create_python_environments": ["False", "True"],
   "python27_path": "c://python27",
   "python36_path": "c://python36",
