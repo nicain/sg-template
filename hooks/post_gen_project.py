@@ -8,7 +8,6 @@ def remove_file(filepath):
 
 
 if __name__ == '__main__':
-    print('in post')
     if 'Not open source' == '{{ cookiecutter.open_source_license }}':
         remove_file('LICENSE')
 
@@ -42,5 +41,4 @@ if __name__ == '__main__':
         print('Creating project environment: {project_env}'.format(project_env=project_env))
         os.system('conda create --name {project_env} python=3.6 -y'.format(project_env=project_env))
 
-    print('After activating your development environment, run `pip install -r requirements_dev.txt`')
     print('After activating your development environment, run `pip install -r requirements_dev.txt`')
