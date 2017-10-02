@@ -12,6 +12,5 @@
   "create_python_environments": ["False", "True"],
   "python27_path": "c://python27",
   "python36_path": "c://python36",
-  "create_project_env": ["True", "False"],
-  "is_windows": ["False", "True"]
+  "create_project_env": ["True", "False"]
 }
