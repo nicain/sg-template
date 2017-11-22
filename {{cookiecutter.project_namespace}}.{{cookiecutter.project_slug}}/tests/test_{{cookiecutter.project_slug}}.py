@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
-test_ephys_pink_noise
+test_{{ cookiecutter.project_slug }}
 ----------------------------------
 
-Tests for `ephys_pink_noise` module.
+Tests for `{{ cookiecutter.project_slug }}` module.
 """
 import pytest
 
