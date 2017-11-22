@@ -1,5 +1,6 @@
-# {{ cookiecutter.project_name }}
+{{ cookiecutter.project_name }}
+===============================
 
-{{ cookiecutter.stash_url }}
+{{ cookiecutter.repo_url }}
 
 {{ cookiecutter.project_short_description }}

@@ -6,7 +6,7 @@
   "project_short_description": "one line description",
   "project_namespace": "aibs",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_').replace(cookiecutter.project_namespace.lower() + '_', '', 1)}}",
-  "stash_url": "http://stash.corp.alleninstitute.org/scm/~{{ cookiecutter.user_name }}/{{ cookiecutter.project_namespace }}.{{ cookiecutter.project_slug }}",
+  "repo_url": "https://github.com/AllenInstitute/{{ cookiecutter.project_namespace }}.{{ cookiecutter.project_slug }}",
   "version": "0.1.0",
   "open_source_license": ["Allen Institute Software License", "GNU General Public License v3", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"]
 }

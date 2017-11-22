@@ -12,7 +12,7 @@ setup(
     description = """{{ cookiecutter.project_short_description }}""",
     author = "{{ cookiecutter.full_name.replace('\"', '\\\"') }}",
     author_email = "{{ cookiecutter.email }}",
-    url = '{{ cookiecutter.stash_url }}',
+    url = '{{ cookiecutter.repo_url }}',
     packages = find_packages(),
     include_package_data=True,
     install_requires = requirements,
