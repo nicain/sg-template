@@ -20,14 +20,14 @@ the project right away rather than spend time setting up your file system.
 `pip install tox`
 
 #### Get Project Template
-`git clone http://jedp@stash.corp.alleninstitute.org/scm/~jedp/pyproj_template.git`
+`git clone https://github.com/AllenInstitute/pyproject_template.git`
 
 #### Set Basic Defaults
-Edit `pyproj_template/user_config.yml` and replace / add / remove any values
+Edit `pyproj_template/user_config.yaml` and replace / add / remove any values
 corresponding to keys in cookiecutter.json that you want.
 
 #### Create a new project
-`cookiecutter -user-config <path-to>/pyproject_template/user_config.yml <path-to>/pyproject_template`
+`cookiecutter -user-config <path-to>/pyproject_template/user_config.yaml <path-to>/pyproject_template`
 
 #### Project configuration
 Currently the main configuration will probably be the 
