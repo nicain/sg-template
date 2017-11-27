@@ -21,7 +21,9 @@ if __name__ == '__main__':
     
     # Write back out to a yaml file compatible with --config-file command line option
     config_file_name_write = os.path.join(PROJECT_DIRECTORY, '.cookiecutter.yaml')
-    yaml.safe_dump({'default_context':cookiecutter_json}, open(config_file_name_write, 'w'), default_flow_style=False)
+    y = yaml.YAML()
+    y.width = 4096 # https://stackoverflow.com/questions/42170709/prevent-long-lines-getting-wrapped-in-ruamel-yaml https://bitbucket.org/ruamel/yaml/issues/108/dump-safe_dump-outputs-invalid-yaml
+    y.dump({'default_context':cookiecutter_json}, open(config_file_name_write, 'w'))
 
     # mock in empy _static folder for documentation assets:
     static_asset_loc = os.path.join(PROJECT_DIRECTORY, 'docs', '_static')
