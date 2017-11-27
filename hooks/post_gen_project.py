@@ -3,6 +3,7 @@ import os
 import json
 import ruamel.yaml as yaml
 
+MAX_WIDTH = 4096
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
 def remove_file(filepath):
@@ -22,6 +23,11 @@ if __name__ == '__main__':
     # Write back out to a yaml file compatible with --config-file command line option
     config_file_name_write = os.path.join(PROJECT_DIRECTORY, '.cookiecutter.yaml')
     y = yaml.YAML()
+
+    for key, val in cookiecutter_json.items():
+        if len(val) >= MAX_WIDTH:
+            raise Exception('Length of %s longer than MAX_WIDTH (%s)\n    See %s' (key, MAX_WIDTH, 'https://stackoverflow.com/questions/42170709/prevent-long-lines-getting-wrapped-in-ruamel-yaml'))
+
     y.width = 4096 # https://stackoverflow.com/questions/42170709/prevent-long-lines-getting-wrapped-in-ruamel-yaml https://bitbucket.org/ruamel/yaml/issues/108/dump-safe_dump-outputs-invalid-yaml
     y.dump({'default_context':cookiecutter_json}, open(config_file_name_write, 'w'))
 
