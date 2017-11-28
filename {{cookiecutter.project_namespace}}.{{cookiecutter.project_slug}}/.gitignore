@@ -61,6 +61,7 @@ target/
 # pyenv python configuration file
 .python-version
 
-# IDE Specific
-.idea
-.history
+# ide specific 
+.idea/
+.history/
+.vscode/

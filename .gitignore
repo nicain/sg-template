@@ -64,3 +64,4 @@ target/
 # ide specific 
 .idea/
 .history/
+.vscode/

@@ -1,0 +1,11 @@
+default_context:
+  project_name: pyproject_template
+  repo_url: https://github.com/AllenInstitute/pyproject_template/
+  project_slug: pyproject_template
+  project_short_description: This is a cookiecutter template. Using this template ensures all your projects have the same structure and your tooling is correctly setup and ready to go. It also provides the tools necessary to test on various version of python and lets you start devloping the project right away rather than spend time setting up your file system.
+  project_namespace: aibs
+  version: 0.1.0
+  full_name: Jed Perkins
+  user_name: JFPerkins
+  email: jedp@alleninstitute.org
+  open_source_license: Allen Institute Software License
