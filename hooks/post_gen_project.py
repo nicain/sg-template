@@ -5,6 +5,7 @@ import ruamel.yaml as yaml
 
 MAX_WIDTH = 4096
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
+COOKIECUTTER_CONFIG_DIR = os.path.join(PROJECT_DIRECTORY, '.cookiecutter')
 
 def remove_file(filepath):
     os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
@@ -14,14 +15,14 @@ if __name__ == '__main__':
         remove_file('LICENSE')
 
     # Read the json file generated from the user input:
-    config_file_name_read = os.path.join(PROJECT_DIRECTORY, '.cookiecutter.json')
+    config_file_name_read = os.path.join(COOKIECUTTER_CONFIG_DIR, '.cookiecutter.json')
     cookiecutter_json = json.load(open(config_file_name_read, 'r'))
 
     # Pop off the _template; this was not input by the user
     cookiecutter_json.pop('_template')
     
     # Write back out to a yaml file compatible with --config-file command line option
-    config_file_name_write = os.path.join(PROJECT_DIRECTORY, '.cookiecutter.yaml')
+    config_file_name_write = os.path.join(COOKIECUTTER_CONFIG_DIR, '.cookiecutter.yaml')
     y = yaml.YAML()
 
     for key, val in cookiecutter_json.items():
