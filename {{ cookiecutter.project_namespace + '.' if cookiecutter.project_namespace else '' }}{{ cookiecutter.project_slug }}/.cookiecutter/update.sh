@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 PROJECT_DIR=$(pwd)/..
 
 cookiecutter https://github.com/AllenInstitute/pyproject_template -o ../.. --config-file .cookiecutter.yaml --no-input --overwrite-if-exists

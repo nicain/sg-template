@@ -42,11 +42,27 @@ if __name__ == '__main__':
     namespace = '{{ cookiecutter.project_namespace }}'
     slug = '{{ cookiecutter.project_slug }}'  
 
-    os.rename( 'to_slug', slug )
-
+    # Determine the final directory location:
     if namespace:
-        os.rename( 'to_namespace', namespace )
-        shutil.move( slug, namespace )
+        project_loc = '/'.join([namespace, slug])
     else:
+        project_loc = slug
+    
+    if not os.path.exists(project_loc):
+        
+        # This is a new project
+        shutil.move( 'to_slug', slug )
+
+        if namespace:
+            shutil.move( 'to_namespace', namespace )
+            shutil.move( slug, namespace )
+        else:
+            shutil.rmtree( 'to_namespace' )
+
+    else:
+
+        # The project already exists, and this is a refresh:
         shutil.rmtree( 'to_namespace' )
+        shutil.rmtree( 'to_slug' )
+        
         
