@@ -21,9 +21,6 @@ setup(
               '{{ cookiecutter.project_namespace + '.' if cookiecutter.project_namespace else '' }}{{ cookiecutter.project_slug }} = {{ cookiecutter.project_namespace + '.' if cookiecutter.project_namespace else '' }}{{ cookiecutter.project_slug }}.__main__:main'
         ]
     },
-{%- if cookiecutter.open_source_license != 'Not open source' %}
-    license="{{ cookiecutter.open_source_license }}",
-{%- endif %}
     setup_requires=['pytest-runner'],
     tests_require = test_requirements
 )

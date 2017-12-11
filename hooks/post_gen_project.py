@@ -3,6 +3,7 @@ import os
 import shutil
 import json
 import ruamel.yaml as yaml
+import textwrap
 
 MAX_WIDTH = 4096
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -12,8 +13,6 @@ def remove_file(filepath):
     os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
 
 if __name__ == '__main__':
-    if 'Not open source' == '{{ cookiecutter.open_source_license }}':
-        remove_file('LICENSE')
 
     # Read the json file generated from the user input:
     config_file_name_read = os.path.join(COOKIECUTTER_CONFIG_DIR, '.cookiecutter.json')
@@ -64,5 +63,12 @@ if __name__ == '__main__':
         # The project already exists, and this is a refresh:
         shutil.rmtree( 'to_namespace' )
         shutil.rmtree( 'to_slug' )
-        
-        
+
+    print("="*80)    
+    txt = "Thanks for using the AIBS cookiecutter python project template.  Your project is currently unlicensed (i.e. does not have a LICENSE file in the repository)."
+    print( "\n".join(textwrap.wrap(txt, width=80)) )
+    
+    print("")
+    txt = "If you would like to publicly release this code, you will need to submit your project to Innovation Central (http://ai/Legal/Innovation/SitePages/Home.aspx).  For more information on code release policies and procedures, check out http://confluence.corp.alleninstitute.org/display/PP/Github+FAQ"
+    print( "\n".join(textwrap.wrap(txt, width=80)) )
+    print("="*80)
