@@ -7,7 +7,7 @@ with open('test_requirements.txt','r') as f:
     test_requirements = f.read().splitlines()
 
 setup(
-    name = '{{ cookiecutter.project_namespace }}_{{ cookiecutter.project_slug }}',
+    name = '{{ cookiecutter.project_namespace + '_' if cookiecutter.project_namespace else '' }}{{ cookiecutter.project_slug }}',
     version = '{{ cookiecutter.version }}',
     description = """{{ cookiecutter.project_short_description }}""",
     author = "{{ cookiecutter.full_name.replace('\"', '\\\"') }}",
@@ -18,7 +18,7 @@ setup(
     install_requires = requirements,
     entry_points={
           'console_scripts': [
-              '{{ cookiecutter.project_namespace }}.{{ cookiecutter.project_slug }} = {{ cookiecutter.project_namespace }}.{{ cookiecutter.project_slug }}.__main__:main'
+              '{{ cookiecutter.project_namespace + '.' if cookiecutter.project_namespace else '' }}{{ cookiecutter.project_slug }} = {{ cookiecutter.project_namespace + '.' if cookiecutter.project_namespace else '' }}{{ cookiecutter.project_slug }}.__main__:main'
         ]
     },
 {%- if cookiecutter.open_source_license != 'Not open source' %}

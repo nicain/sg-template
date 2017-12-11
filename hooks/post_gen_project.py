@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import shutil
 import json
 import ruamel.yaml as yaml
 
@@ -36,3 +37,16 @@ if __name__ == '__main__':
     static_asset_loc = os.path.join(PROJECT_DIRECTORY, 'docs', '_static')
     if not os.path.exists(static_asset_loc):
         os.mkdir(static_asset_loc)
+
+
+    namespace = '{{ cookiecutter.project_namespace }}'
+    slug = '{{ cookiecutter.project_slug }}'  
+
+    os.rename( 'to_slug', slug )
+
+    if namespace:
+        os.rename( 'to_namespace', namespace )
+        shutil.move( slug, namespace )
+    else:
+        shutil.rmtree( 'to_namespace' )
+        

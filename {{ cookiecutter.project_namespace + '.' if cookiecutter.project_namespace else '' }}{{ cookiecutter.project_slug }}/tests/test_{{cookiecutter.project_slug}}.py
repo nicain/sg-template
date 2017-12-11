@@ -19,8 +19,7 @@ def decorated_example():
 def test_example(decorated_example):
     """Sample pytest test function with the pytest fixture as an argument.
     """
-    import {{cookiecutter.project_namespace}}.{{cookiecutter.project_slug}}
-    from {{cookiecutter.project_namespace}} import {{cookiecutter.project_slug}}
+    import {{ cookiecutter.project_namespace + '.' if cookiecutter.project_namespace else '' }}{{ cookiecutter.project_slug }}
 
 
 
