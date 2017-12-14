@@ -1,7 +1,13 @@
 {{ cookiecutter.project_name }} documentation
 ======================================
 
+Gallery:
+==================
+
+:ref:`examples-index`
+
 Contents:
+==================
 
 .. toctree::
    :maxdepth: 2

@@ -21,7 +21,6 @@ setup(
               'aibs.pyproject_template = aibs.pyproject_template.__main__:main'
         ]
     },
-    license="Allen Institute Software License",
     setup_requires=['pytest-runner'],
     tests_require = test_requirements
 )

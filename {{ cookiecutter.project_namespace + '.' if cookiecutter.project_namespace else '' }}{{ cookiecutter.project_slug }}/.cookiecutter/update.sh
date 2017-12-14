@@ -3,7 +3,7 @@ set -e
 
 PROJECT_DIR=$(pwd)/..
 
-cookiecutter https://github.com/AllenInstitute/pyproject_template -o ../.. --config-file .cookiecutter.yaml --no-input --overwrite-if-exists
+cookiecutter https://github.com/nicain/pyproject_template -o ../.. --config-file .cookiecutter.yaml --no-input --overwrite-if-exists --checkout 32
 
 # Add post-cookiecutter commands that you always want run here:
 git checkout -- $PROJECT_DIR/README.md

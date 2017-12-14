@@ -4,6 +4,7 @@ import shutil
 import json
 import ruamel.yaml as yaml
 import textwrap
+from subprocess import call
 
 MAX_WIDTH = 4096
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -37,6 +38,13 @@ if __name__ == '__main__':
     if not os.path.exists(static_asset_loc):
         os.mkdir(static_asset_loc)
 
+    # Download aibs_sphinx templating files:
+    return_code = call('git clone https://github.com/AllenInstitute/aibs_sphinx.git', shell=True)
+    assert return_code == 0
+    shutil.rmtree(os.path.join('aibs_sphinx', '.git'))
+    if os.path.exists(os.path.join('docs', 'aibs_sphinx')):
+        shutil.rmtree(os.path.join('docs', 'aibs_sphinx'))
+    shutil.move( 'aibs_sphinx', 'docs')
 
     namespace = '{{ cookiecutter.project_namespace }}'
     slug = '{{ cookiecutter.project_slug }}'  
