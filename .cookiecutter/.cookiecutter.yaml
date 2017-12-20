@@ -6,5 +6,6 @@ default_context:
   project_namespace: aibs
   version: 0.1.0
   full_name: Jed Perkins
+  _template: https://github.com/AllenInstitute/pyproject_template
   user_name: JFPerkins
   email: jedp@alleninstitute.org
