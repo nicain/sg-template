@@ -69,11 +69,6 @@ if __name__ == '__main__':
         shutil.rmtree( 'to_namespace' )
         shutil.rmtree( 'to_slug' )
 
-    print("="*80)    
-    txt = "Thanks for using the AIBS cookiecutter python project template.  Your project is currently unlicensed (i.e. does not have a LICENSE file in the repository)."
-    print( "\n".join(textwrap.wrap(txt, width=80)) )
-    
-    print("")
-    txt = "If you would like to publicly release this code, you will need to submit your project to Innovation Central (http://ai/Legal/Innovation/SitePages/Home.aspx).  For more information on code release policies and procedures, check out http://confluence.corp.alleninstitute.org/display/PP/Github+FAQ"
-    print( "\n".join(textwrap.wrap(txt, width=80)) )
-    print("="*80)
+    splash_file_name = os.path.join(PROJECT_DIRECTORY, 'docs', 'splash.txt')
+    with open(splash_file_name, 'r') as fin:
+        print fin.read()
