@@ -10,4 +10,3 @@ cc(settings['_template'],
     config_file=".cookiecutter.yaml",
     no_input=True,
     overwrite_if_exists=True)
-    
