@@ -7,4 +7,4 @@ cc(settings['_template'],
     output_dir="../..",
     config_file=".cookiecutter.yaml",
     no_input=True,
-    overwrite_if_exists=True)'
+    overwrite_if_exists=True)
