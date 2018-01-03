@@ -36,3 +36,11 @@ Currently the main configuration will probably be the
 * possibly .bumpversion.cfg
 
 To use, simply run <code>tox</code> to test your builds.
+
+#### Package dependencies
+The python dependencies for your package should be placed in one of three "requirements" files:
+* requirements.in  (for direct dependencies to use your project)
+* requirements-dev.in (additional dependencies to improved your project, for your users)
+* requirements-test.in (additional dependencies required by the project testing infrastructure)
+
+These dependencies are compiled into standard requirements<"","-dev", "-test">.txt files manually using pip-compile (installed with pip install pip-tools; see https://github.com/jazzband/pip-tools for more info.).  After you are done editing/updating any of these files, regenerate these files usint pip-compile to make sure your dependencies stay up-to-date.

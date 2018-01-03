@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open('requirements.txt', 'r') as f:
     requirements = f.read().splitlines()
 
-with open('test_requirements.txt','r') as f:
+with open('requirements-test.txt','r') as f:
     test_requirements = f.read().splitlines()
 
 setup(
