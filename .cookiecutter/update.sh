@@ -9,6 +9,8 @@ python update_from_repo.py
 git checkout -- $PROJECT_DIR/README.md
 git checkout -- $PROJECT_DIR/AUTHORS.rst
 git checkout -- $PROJECT_DIR/requirements.txt
+git checkout -- $PROJECT_DIR/tox.ini
+git checkout -- $PROJECT_DIR/.cookiecutter/update.sh
 
 # Enter patch mode on remaining diffs:
 git add -p

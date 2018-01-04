@@ -5,6 +5,7 @@
 #    pip-compile --output-file requirements-test.txt requirements-test.in
 #
 attrs==17.3.0             # via pytest
+coverage==4.4.2
 funcsigs==1.0.2           # via pytest
 pluggy==0.6.0             # via pytest
 py==1.5.2                 # via pytest
