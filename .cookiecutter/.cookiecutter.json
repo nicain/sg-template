@@ -8,5 +8,6 @@
     "project_slug": "pyproject_template", 
     "repo_url": "https://github.com/AllenInstitute/pyproject_template/", 
     "user_name": "JFPerkins", 
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "_copy_without_render": ["docs/aibs_sphinx"]
 }

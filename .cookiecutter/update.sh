@@ -3,6 +3,7 @@ set -e
 
 PROJECT_DIR=$(pwd)/..
 
+pip install --upgrade --force git+https://github.com/nicain/cookiecutter@1029 # Hack until https://github.com/audreyr/cookiecutter/pull/1030 is merged
 python update_from_repo.py
 
 # Add post-cookiecutter commands that you always want run here:

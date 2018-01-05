@@ -9,3 +9,4 @@ default_context:
   _template: https://github.com/AllenInstitute/pyproject_template
   user_name: JFPerkins
   email: jedp@alleninstitute.org
+  _copy_without_render": ["docs/aibs_sphinx"]
