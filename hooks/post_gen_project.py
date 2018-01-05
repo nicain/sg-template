@@ -7,6 +7,7 @@ import textwrap
 from subprocess import call
 import textwrap
 from io import StringIO
+import six
 
 MAX_WIDTH = 4096
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -19,18 +20,18 @@ def get_splash_text():
     
     buf = StringIO()
 
-    buf.write(unicode("="*80+"\n"))
+    buf.write(six.text_type("="*80+"\n"))
 
     txt = "Thanks for using the AIBS cookiecutter python project template."
-    buf.write(unicode( "\n".join(textwrap.wrap(txt, width=80)) +"\n"))
+    buf.write(six.text_type( "\n".join(textwrap.wrap(txt, width=80)) +"\n"))
 
-    buf.write(unicode("\nLicense:"+"\n"))
+    buf.write(six.text_type("\nLicense:"+"\n"))
     txt = "Your project is currently unlicensed (i.e. does not have a LICENSE file in the repository). If you would like to publicly release this code, you will need to submit your project to Innovation Central (http://ai/Legal/Innovation/SitePages/Home.aspx).  For more information on code release policies and procedures, check out http://confluence.corp.alleninstitute.org/display/PP/Github+FAQ"
-    buf.write(unicode( "\n".join(textwrap.wrap(txt, width=80)) +"\n"))
+    buf.write(six.text_type( "\n".join(textwrap.wrap(txt, width=80)) +"\n"))
 
-    buf.write(unicode("\nContributing:"+"\n"))
+    buf.write(six.text_type("\nContributing:"+"\n"))
     txt = "Your public facing project should have a statement about what level of support users should expect. Here are 4 example suggestions about a level of support notification you could include on your github repo; by default the first example (no expectation of support) is included in README.md, but feel free to customize:"
-    buf.write(unicode( "\n".join(textwrap.wrap(txt, width=80, replace_whitespace=False)) +"\n"))
+    buf.write(six.text_type( "\n".join(textwrap.wrap(txt, width=80, replace_whitespace=False)) +"\n"))
 
     txt = """
         1. We are not currently supporting this code, but simply releasing it to the community AS IS but are not able to provide any guarantees of support.  The community is welcome to submit issues, but you should not expect an active response.
@@ -42,9 +43,9 @@ def get_splash_text():
         4. We are releasing this code to the public as a tool we expect others to use. Issues are welcomed and we expect to address them promptly, pull requests will vetted by our staff before inclusion.
     """
 
-    buf.write(unicode( "\n".join(textwrap.wrap(txt, width=80, replace_whitespace=False, initial_indent='    ', subsequent_indent='    ')) +"\n"))
+    buf.write(six.text_type( "\n".join(textwrap.wrap(txt, width=80, replace_whitespace=False, initial_indent='    ', subsequent_indent='    ')) +"\n"))
 
-    buf.write(unicode("="*80))
+    buf.write(six.text_type("="*80))
 
     return str(buf.getvalue())
 

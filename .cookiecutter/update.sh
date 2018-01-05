@@ -12,6 +12,7 @@ git checkout -- $PROJECT_DIR/AUTHORS.rst
 git checkout -- $PROJECT_DIR/requirements.txt
 git checkout -- $PROJECT_DIR/tox.ini
 git checkout -- $PROJECT_DIR/.cookiecutter/update.sh
+git checkout -- $PROJECT_DIR/Makefile
 
 # Enter patch mode on remaining diffs:
 git add -p
