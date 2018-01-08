@@ -1,5 +1,0 @@
--r requirements.txt
-sphinx>=1.6.5
-sphinx-gallery>=0.1.13
-matplotlib>=2.0.2
-pillow>=5.0.0

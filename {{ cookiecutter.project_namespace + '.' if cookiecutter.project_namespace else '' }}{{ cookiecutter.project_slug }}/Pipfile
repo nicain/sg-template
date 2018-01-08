@@ -19,6 +19,5 @@ pytest = "*"
 
 [packages]
 
-cookiecutter = "*"
 matplotlib = "*"
 pillow = "*"
