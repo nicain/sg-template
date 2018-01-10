@@ -99,7 +99,7 @@ div.related li.right {
 div.sphinxsidebar h3 {
     margin: 0;
     margin-top: 20px;
-    font-family: bebas_neueregular;
+    font-family: BebasNeue;
     font-weight: bold;
     font-size: 40px;
     color: rgb(66,66,66);
@@ -107,6 +107,9 @@ div.sphinxsidebar h3 {
 
 div.sphinxsidebar h3 a {
     color: rgb(66,66,66);
+} 
+div.sphinxsidebar h3 a:hover {
+    color: #47AEDC;
 }
 
 div.sphinxsidebar h4 {
@@ -462,7 +465,7 @@ div.body h3,
 div.body h4,
 div.body h5,
 div.body h6 {
-    font-family: bebas_neueregular;
+    font-family: BebasNeue;
     font-weight: bold;
     color: rgb(66,66,66);
 
@@ -832,29 +835,8 @@ td.field-body > p > strong {
    background-color: #eaeaea;
    padding: 3px;
    border-left: 2px solid #d0d0d0;
-}
+} 
 
-
-  div.document {
-  position:relative !important;
-  }
-
-  img#portal_logo{
-  display:none;
-  }
-  
-  #header_content{
-  height:75px !important;
-  }
-
-  #header_content > a:hover {
-  background-color: transparent !important;
-  }
-
-  #portal_tabs {
-  display:none !important;;
-  }
-
-  #portal_search_input_group {
-  display:none !important;
-  }
+div.document {
+    position:relative !important;
+} 
