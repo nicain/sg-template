@@ -1,6 +1,6 @@
 from . import entrypoint_exists
 
-def test_default_entrypoint_installed():
-    default_entrypoint = '{{ cookiecutter.project_namespace + '.' if cookiecutter.project_namespace else '' }}{{ cookiecutter.project_slug }}'
-    assert entrypoint_exists(default_entrypoint)
+DEFAULT_ENTRYPOINT = '{{ cookiecutter.project_namespace + '.' if cookiecutter.project_namespace else '' }}{{ cookiecutter.project_slug }}'
 
+def test_default_entrypoint_installed():
+    assert entrypoint_exists(DEFAULT_ENTRYPOINT)

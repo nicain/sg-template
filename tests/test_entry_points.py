@@ -1,6 +1,6 @@
 from . import entrypoint_exists
 
-def test_default_entrypoint_installed():
-    default_entrypoint = 'aibs.pyproject_template'
-    assert entrypoint_exists(default_entrypoint)
+DEFAULT_ENTRYPOINT = 'aibs.pyproject_template'
 
+def test_default_entrypoint_installed():
+    assert entrypoint_exists(DEFAULT_ENTRYPOINT)

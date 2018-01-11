@@ -1,17 +1,12 @@
-from ._schemas import InputParameters, OutputParameters
-from argschema import ArgSchemaParser
+import argparse
+
+from . import __version__
 
 def main():
-    """Main entry point for running {{ cookiecutter.project_name }}."""
-    mod = ArgSchemaParser(schema_type=InputParameters,
-                          output_schema_type=OutputParameters)
-    output = {}
-    # YOUR STUFF GOES HERE
-    output.update({"input_parameters": mod.args})
-    if "output_json" in mod.args:
-        mod.output(output)
-    else:
-        print(mod.get_output_json(output))
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--version', action='version', version=__version__)
+    parser.parse_args()
 
 if __name__ == "__main__":
     main()
