@@ -16,9 +16,9 @@ sphinx-gallery = "*"
 pytest = "*"
 "ruamel.yaml" = "*"
 
-
 [packages]
 
 cookiecutter = "*"
 matplotlib = "*"
 pillow = "*"
+argschema = "*"

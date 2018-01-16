@@ -1,20 +1,20 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "99e72c582f94a8cd982d7a20dda327b8346a5134df59bc802841d9dd5835a8cf"
+            "sha256": "119b50d935e9444bfef10eb054b67b2a9f26088129f0b310e908c29a660450eb"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
-            "implementation_version": "0",
+            "implementation_version": "3.5.4",
             "os_name": "posix",
             "platform_machine": "x86_64",
             "platform_python_implementation": "CPython",
             "platform_release": "4.10.0-38-generic",
             "platform_system": "Linux",
             "platform_version": "#42~16.04.1-Ubuntu SMP Tue Oct 10 16:32:20 UTC 2017",
-            "python_full_version": "2.7.13",
-            "python_version": "2.7",
-            "sys_platform": "linux2"
+            "python_full_version": "3.5.4",
+            "python_version": "3.5",
+            "sys_platform": "linux"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -27,6 +27,13 @@
         ]
     },
     "default": {
+        "argschema": {
+            "hashes": [
+                "sha256:9894fd5b4c6f067484c6590c8c15160e82d9b073182c23b5d3eb265c5c52ec90",
+                "sha256:ac0ded41a30a126cb65e3914d2f4714fc7f7fdbfe39641dab98abdfad0639cca"
+            ],
+            "version": "==1.15.15"
+        },
         "arrow": {
             "hashes": [
                 "sha256:a15ecfddf334316e3ac8695e48c15d1be0d6038603b33043930dcf0e675c86ee"
@@ -114,6 +121,13 @@
                 "sha256:a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
             ],
             "version": "==1.0"
+        },
+        "marshmallow": {
+            "hashes": [
+                "sha256:8740ada95f47fa19f905772aa4932dc5512226a90c30da5672d6d6bf3dd791a7",
+                "sha256:d3f31fe7be2106b1d783cbd0765ef4e1c6615505514695f33082805f929dd584"
+            ],
+            "version": "==2.15.0"
         },
         "matplotlib": {
             "hashes": [
@@ -304,10 +318,10 @@
         },
         "babel": {
             "hashes": [
-                "sha256:f20b2acd44f587988ff185d8949c3e208b4b3d5d20fcab7d91fe481ffa435528",
-                "sha256:6007daf714d0cd5524bbe436e2d42b3c20e68da66289559341e48d2cd6d25811"
+                "sha256:ad209a68d7162c4cff4b29cdebe3dec4cef75492df501b0049a9433c96ce6f80",
+                "sha256:8ce4cb6fdd4393edd323227cba3a077bceb2a6ce5201c902c65e730046f41f14"
             ],
-            "version": "==2.5.1"
+            "version": "==2.5.3"
         },
         "backports.functools-lru-cache": {
             "hashes": [
