@@ -21,3 +21,4 @@ pytest = "*"
 
 matplotlib = "*"
 pillow = "*"
+argschema = "*"
