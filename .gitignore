@@ -1,6 +1,3 @@
-# Computed by tox pip-compile:
-.tested_requirements.txt
-
 # Sphinx gallery temp dir
 docs/auto_examples/
 
