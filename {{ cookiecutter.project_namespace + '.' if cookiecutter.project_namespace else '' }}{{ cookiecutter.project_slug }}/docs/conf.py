@@ -113,9 +113,6 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
-# If true, keep warnings as "system message" paragraphs in the built
-# documents.
-#keep_warnings = False
 
 
 # -- Options for HTML output -------------------------------------------
@@ -283,6 +280,16 @@ texinfo_documents = [
 
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
 #texinfo_show_urls = 'footnote'
+            
+def run_apidoc(_):
+    from sphinx.apidoc import main
+    import sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+    cur_dir = os.path.abspath(os.path.dirname(__file__))
+    module = os.path.join(cur_dir,"..","{{ cookiecutter.project_namespace if cookiecutter.project_namespace else cookiecutter.project_slug }}")
+    main(['-e', '-o', cur_dir, module, '--force'])
 
-# If true, do not generate a @detailmenu in the "Top" node's menu.
-#texinfo_no_detailmenu = False
+def setup(app):
+    app.connect('builder-inited', run_apidoc)
+
+    
