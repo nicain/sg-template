@@ -286,12 +286,10 @@ def run_apidoc(_):
     import sys
     sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
     cur_dir = os.path.abspath(os.path.dirname(__file__))
-    module = os.path.join(cur_dir,"..","allensdk")
+    module = os.path.join(cur_dir,"..","aibs")
     main(['-e', '-o', cur_dir, module, '--force'])
 
 def setup(app):
-    app.connect('autodoc-skip-member', skip_autodoc)
-    app.connect('builder-inited', render_notebooks)
     app.connect('builder-inited', run_apidoc)
 
     
