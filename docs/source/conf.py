@@ -309,7 +309,7 @@ def run_apidoc(_):
     import os
     import sys
     out_dir = os.path.dirname(__file__)
-    src_dir = os.path.join(out_dir, '../../src2')
+    src_dir = os.path.join(out_dir, '../../src')
     sys.path.append(src_dir)
     main(['-f', '-e', '-o', out_dir, src_dir])
 
@@ -334,7 +334,7 @@ def skip(app, what, name, obj, skip, options):
 
 
 def setup(app):
-    app.connect('builder-inited', run_apidoc)
+    # app.connect('builder-inited', run_apidoc)
     app.add_stylesheet("theme_overrides.css")  # overrides for wide tables in RTD theme
     app.override_domain(PatchedPythonDomain)
     app.connect("autodoc-skip-member", skip)
