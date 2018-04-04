@@ -1,12 +1,7 @@
-.. _examples-index:
-
-Gallery of Examples
-===================
 
 
-.. _general_examples:
+.. _tutorials:
 
-General examples
-----------------
 
-General-purpose and introductory examples from the sphinx-gallery
+Tutorials
+=========
