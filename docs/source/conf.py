@@ -309,7 +309,7 @@ def run_apidoc(_):
     import os
     import sys
     out_dir = os.path.dirname(__file__)
-    src_dir = os.path.join(out_dir, '../../src')
+    src_dir = os.path.join(out_dir, '../../src2')
     sys.path.append(src_dir)
     main(['-f', '-e', '-o', out_dir, src_dir])
 
